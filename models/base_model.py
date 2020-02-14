@@ -17,7 +17,12 @@ class BaseModel:
         self.updated_at = datetime.now()
         if kwargs:
             for k, v in kwargs.items():
-                setattr(self, k, v)
+                if k == 'created_at':
+                    self.created_at = strptime(v, '%Y-%m-%dT%H:%M:%S.%f')
+                elif k == 'updated_at':
+                    self.updated_at = strptime(v, '%Y-%m-%dT%H:%M:%S.%f')
+                else:
+                    setattr(self, k, v)
 
     def __str__(self):
         """ printable reprsentation of the object """
