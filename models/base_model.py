@@ -21,7 +21,8 @@ class BaseModel:
 
     def __str__(self):
         """ printable reprsentation of the object """
-        return "[{}] ({}) {}".format(self.__class__.__name__, self.id, self.__dict__)
+        return "[{}] ({}) {}".format(self.__class__.__name__,
+                                     self.id, self.__dict__)
 
     def save(self):
         """ updates the public instance attribute updated_at """
@@ -35,8 +36,8 @@ class BaseModel:
         a = {}
         for k, v in self.__dict__.items():
             if k != 'created_at' and k != 'updated_at':
-                setattr(a, k, v)
-        a['__class__'] = __class_.__name__
+                a[k] = v
+        a['__class__'] = self.__class__.__name__
         a['created_at'] = self.created_at.strftime("%Y-%m-%dT%H:%M:%S.%f")
-        a['updated_at'] = self.created_at.strftime("%Y-%m-%dT%H:%M:%S.%f")
+        a['updated_at'] = self.updated_at.strftime("%Y-%m-%dT%H:%M:%S.%f")
         return a
