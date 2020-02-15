@@ -1,11 +1,15 @@
 #!/usr/bin/python3
 """ entry point of the command interpreter """
 import cmd
+import sys
 
 
 class HBNBCommand(cmd.Cmd):
     """ cmd class """
-    prompt = '(hbnb) '
+    if sys.stdin.isatty():
+        prompt = '(hbnb) '
+    else:
+        prompt = '(hbnb)\n'
 
     def main():
         """ main function """
@@ -28,6 +32,11 @@ class HBNBCommand(cmd.Cmd):
     def emptyline(self):
         """ do nothing when an empty line is entered """
         pass
+
+    def postloop(self):
+        """ postloop """
+        if sys.stdin.isatty():
+            print()
 
 if __name__ == '__main__':
     HBNBCommand().cmdloop()
