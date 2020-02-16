@@ -74,7 +74,7 @@ class HBNBCommand(cmd.Cmd):
                     objects = storage.all()
                     if key in objects:
                         del objects[key]
-                        storage.save()  
+                        storage.save()
                     else:
                         print("** no instance found **")
 
@@ -97,7 +97,7 @@ class HBNBCommand(cmd.Cmd):
         Updates an instance based on the class name and id
         by adding or updating attribute
         and saves the change into the JSON file
-        
+
         """
         if arg == '':
             print("** class name missing **")
