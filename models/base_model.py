@@ -4,7 +4,7 @@ This module contains BaseModel class
 """
 import uuid
 from datetime import datetime
-from . import storage
+import models
 
 
 class BaseModel:
@@ -31,7 +31,7 @@ class BaseModel:
                 else:
                     setattr(self, k, v)
         else:
-            storage.new(self)
+            models.storage.new(self)
 
     def __str__(self):
         """ printable reprsentation of the object """
@@ -41,8 +41,8 @@ class BaseModel:
     def save(self):
         """ updates the public instance attribute updated_at """
         self.updated_at = datetime.now()
-        storage.new(self)
-        storage.save()
+        models.storage.new(self)
+        models.storage.save()
 
     def to_dict(self):
         """

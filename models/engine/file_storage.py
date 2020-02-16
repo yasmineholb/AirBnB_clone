@@ -36,9 +36,17 @@ class FileStorage:
         try:
             with open(FileStorage.__file_path, "r") as f:
                 from models.base_model import BaseModel
+                from models.user import User
+                from models.state import State
+                from models.city import City
+                from models.amenity import Amenity
+                from models.place import Place
+                from models.review import Review
                 data = json.load(f)
                 for v in data.values():
-                    obj = BaseModel(**v)
+                    my_cl = v["__class__"]
+                    my_cl = eval(my_cl)
+                    obj = my_cl(**v)
                     self.new(obj)
         except:
             pass
