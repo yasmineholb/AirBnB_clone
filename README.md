@@ -23,9 +23,14 @@ In this repository, we will focus only on the **command interpreter** and **file
  - If the typed command (the function) doesn't exist, the console prints an Error message.
  - Quits when the user enters "quit" or "EOF" or presses Ctrl+d.
 
+## The flow of Serialization-Deserialization
+````
+**<class 'BaseModel'> -> to_dict() -> <class 'dict'> -> JSON dump -> <class 'str'> -> FILE (file.json) -> <class 'str'> -> JSON load -> <class 'dict'> -> <class 'BaseModel'>**
+````
 ## Files repartition
 **AirBnB_clone**
  - ├── console.py
+ - ├── file.json (stores a JSON string representation of objects)
  - ├── AUTHORS
  - ├── README.md
  - ├── tests/ (unittests)
