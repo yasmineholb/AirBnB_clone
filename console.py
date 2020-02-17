@@ -27,6 +27,32 @@ class HBNBCommand(cmd.Cmd):
         do_quit(self, arg)
         emptyline(self)
 
+    def default(self, arg):
+        y = arg.split('.')
+        if  y[0] in HBNBCommand.classes:
+            if y[1] == "all()":
+                objects = storage.all()
+                l = []
+                for v in objects.values():
+                    if v.__class__.__name__ == y[0]:
+                        l.append(str(v))
+                print(l)
+            elif y[1] == "count()":
+                objects = storage.all()
+                l = 0
+                for v in objects.values():
+                    if v.__class__.__name__ == y[0]:
+                        l += 1
+                print(l)
+            elif y[1][0:4] == "show":
+                m = y[1][4:].split('(')
+                d = m[1].split(')')
+                c = d[0]
+                objects = storage.all()
+                if c in objects:
+                    print(objects[c])
+
+
     def do_create(self, arg):
         """
         Creates a new instance of BaseModel,
