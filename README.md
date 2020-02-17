@@ -25,22 +25,22 @@ The console:
 
 ## Files repartition
  AirBnB_clone\
- ├── console.py\
- ├── AUTHORS\
- ├── README.md\
- ├── tests/ (unittests)\
- └── models\
-     ├── __init__.py\
-     ├── base_model.py\
-     ├── user.py\
-     ├── state.py\
-     ├── place.py\
-     ├── city.py\
-     ├── amenity.py\
-     ├── review.py\
-     └── engine\
-         ├── __init__.py\
-         └── file_storage.py\
+ - ├── console.py\
+ - ├── AUTHORS\
+ - ├── README.md\
+ - ├── tests/ (unittests)\
+ - └── models\
+     - ├── __init__.py\
+     - ├── base_model.py\
+     - ├── user.py\
+     - ├── state.py\
+     - ├── place.py\
+     - ├── city.py\
+     - ├── amenity.py\
+     - ├── review.py\
+     - └── engine\
+         - ├── __init__.py\
+         - └── file_storage.py\
 
 ## Files description
 
