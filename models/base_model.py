@@ -2,9 +2,9 @@
 """
 This module contains BaseModel class
 """
-import uuid
 from datetime import datetime
 import models
+import uuid
 
 
 class BaseModel:
@@ -54,6 +54,6 @@ class BaseModel:
             if k != 'created_at' and k != 'updated_at':
                 a[k] = v
         a['__class__'] = self.__class__.__name__
-        a['created_at'] = self.created_at.strftime("%Y-%m-%dT%H:%M:%S.%f")
-        a['updated_at'] = self.updated_at.strftime("%Y-%m-%dT%H:%M:%S.%f")
+        a['created_at'] = self.created_at.isoformat()
+        a['updated_at'] = self.updated_at.isoformat()
         return a
