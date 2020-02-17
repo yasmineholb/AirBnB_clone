@@ -46,6 +46,10 @@ class HBNBCommand(cmd.Cmd):
             self.fn_show(y[0], y[1])
         elif y[1][0:8] == "destroy(" and y[1][-1] == ")":
             self.fn_destroy(y[0], y[1])
+        elif y[1][0:7] == "update(" and y[1][-1] == ")":
+            self.fn_update(y[0], y[1])
+        else:
+            print("*** Unknown syntax: ", arg)
 
     def fn_all(self, y0):
         """
@@ -103,6 +107,35 @@ class HBNBCommand(cmd.Cmd):
             storage.save()
         else:
             print("** no instance found **")
+
+    def fn_update(self, y0, y1):
+        """ update an instance """
+        m = y1.split('(')
+        d = m[1].split(')')
+        param = d[0]
+        n = param.split(', ')
+        if n[0] == "":
+            print("** instance id missing **")
+            return
+        key = y0 + "." + n[0]
+        objects = storage.all()
+        if key not in objects:
+            print("** no insatnce found **")
+            return
+        if len(n) == 1 or n[1] == "":
+            print("** attribute name missing **")
+            return
+        if len(n) == 2 or n[2] == "":
+            print("** value missing **")
+            return
+        attr = n[1]
+        try:
+            value = getattr(objects[key], attr)
+            t = type(value)
+            setattr(objects[key], attr, t(n[2]))
+        except:
+            setattr(objects[key], attr, n[2])
+        storage.save()
 
     def do_create(self, arg):
         """
