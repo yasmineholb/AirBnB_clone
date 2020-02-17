@@ -98,7 +98,7 @@ When you want to exit the program, you can use one of the following methods:
 No Known Bugs.
 ## AUTHOR
 Yasmine Hamdi : [LinkedIn/Yasmine] | [GitHub/Yasmine] | [Twitter/Yasmine]\
-Mariem Matri : [LinkedIn/Mariem] | [GitHub/Mariem] | [Twitter/Mariem]\
+Mariem Matri : [LinkedIn/Mariem] | [GitHub/Mariem] | [Twitter/Mariem]
 
 [LinkedIn/Mariem]: <https://www.linkedin.com/in/mariem-matri-249620178>
 [GitHub/Mariem]: <https://github.com/MatriMariem>
