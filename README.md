@@ -1,5 +1,5 @@
 # AirBnB_clone
-**a command interpreter to manage the AirBnB objects**
+**Command interpreter to manage the AirBnB objects**
 ****
 ## About this project
 The AirBnB_clone is the first step towards building our first full web application.\
@@ -7,7 +7,7 @@ This web application is composed by:
   -  A command interpreter to manipulate data without a visual interface, like in a Shell (perfect for development and debugging).
   -  A website (the front-end) that shows the final product to everybody: static and dynamic
   -  A database or files that store data (data = objects).
-  -  An API that provides a communication interface between the front-end and your data (retrieve, create, delete, update them).
+  -  An API that provides a communication interface between the front-end and your data (retrieve, create, delete, update them).\
 In this project, we will manipulate 2 types of storage: file and database.\
 In this repository, we will focus only on the **command interpreter** and **file storage**.
 
@@ -15,7 +15,7 @@ In this repository, we will focus only on the **command interpreter** and **file
  -  Command line interpreter that manipulates data and manages serialization and deserialization of objects.
 
 ## How it works
-The console:
+**The console:**
  - Displays the prompt (default prompt: "(cmd)", our prompt: "(hbnb)") and waits for user input.
  - Reads the entered command and the argument.
  - Looks for the function of the command. For example: entering the command "all", makes the console looks for "do_all(self, arg)" function.
@@ -24,7 +24,7 @@ The console:
  - Quits when the user enters "quit" or "EOF" or presses Ctrl+d.
 
 ## Files repartition
- AirBnB_clone
+**AirBnB_clone**
  - ├── console.py
  - ├── AUTHORS
  - ├── README.md
@@ -92,13 +92,48 @@ When you want to exit the program, you can use one of the following methods:
 (hbnb) quit
 ````
 > **2: Press on Ctrl d**
+****
+## Example of Usage
+````
+(hbnb) create BaseModel
+0caf3180-e6b8-4e2d-aead-b955ea5fa10b
+(hbnb) create User
+c541aee4-03da-49fd-8fb9-278dbd79f69b
+(hbnb) create Place
+93af02d8-f99a-469d-b7e5-b0e0502ecfca
+(hbnb) all
+["[BaseModel] (0caf3180-e6b8-4e2d-aead-b955ea5fa10b) {'id': '0caf3180-e6b8-4e2d-aead-b955ea5fa10b', 'created_at': datetime.datetime(2020, 2, 17, 12, 42, 11, 828591), 'updated_at': datetime.datetime(2020, 2, 17, 12, 42, 11, 828608)}", "[User] (c541aee4-03da-49fd-8fb9-278dbd79f69b) {'id': 'c541aee4-03da-49fd-8fb9-278dbd79f69b', 'created_at': datetime.datetime(2020, 2, 17, 12, 42, 18, 998198), 'updated_at': datetime.datetime(2020, 2, 17, 12, 42, 18, 998220)}", "[Place] (93af02d8-f99a-469d-b7e5-b0e0502ecfca) {'id': '93af02d8-f99a-469d-b7e5-b0e0502ecfca', 'created_at': datetime.datetime(2020, 2, 17, 12, 42, 38, 634386), 'updated_at': datetime.datetime(2020, 2, 17, 12, 42, 38, 634408)}"]
+(hbnb) all BaseModel
+["[BaseModel] (0caf3180-e6b8-4e2d-aead-b955ea5fa10b) {'id': '0caf3180-e6b8-4e2d-aead-b955ea5fa10b', 'created_at': datetime.datetime(2020, 2, 17, 12, 42, 11, 828591), 'updated_at': datetime.datetime(2020, 2, 17, 12, 42, 11, 828608)}"]
+(hbnb) 
+(hbnb) 
+(hbnb) show User c541aee4-03da-49fd-8fb9-278dbd79f69b
+[User] (c541aee4-03da-49fd-8fb9-278dbd79f69b) {'id': 'c541aee4-03da-49fd-8fb9-278dbd79f69b', 'created_at': datetime.datetime(2020, 2, 17, 12, 42, 18, 998198), 'updated_at': datetime.datetime(2020, 2, 17, 12, 42, 18, 998220)}
+(hbnb) update User c541aee4-03da-49fd-8fb9-278dbd79f69b id "85"
+(hbnb) show User c541aee4-03da-49fd-8fb9-278dbd79f69b
+[User] (85) {'id': '85', 'created_at': datetime.datetime(2020, 2, 17, 12, 42, 18, 998198), 'updated_at': datetime.datetime(2020, 2, 17, 12, 42, 18, 998220)}
+(hbnb) update User c541aee4-03da-49fd-8fb9-278dbd79f69b team "Yasmine and Mariem"
+(hbnb) show User c541aee4-03da-49fd-8fb9-278dbd79f69b
+[User] (85) {'id': '85', 'created_at': datetime.datetime(2020, 2, 17, 12, 42, 18, 998198), 'updated_at': datetime.datetime(2020, 2, 17, 12, 42, 18, 998220), 'team': 'Yasmine and Mariem'}
+(hbnb) destroy User c541aee4-03da-49fd-8fb9-278dbd79f69b
+(hbnb) destroy BaseModel 0caf3180-e6b8-4e2d-aead-b955ea5fa10b
+(hbnb) all
+["[Place] (93af02d8-f99a-469d-b7e5-b0e0502ecfca) {'id': '93af02d8-f99a-469d-b7e5-b0e0502ecfca', 'created_at': datetime.datetime(2020, 2, 17, 12, 42, 38, 634386), 'updated_at': datetime.datetime(2020, 2, 17, 12, 42, 38, 634408)}"]
+(hbnb) all BaseModel
+[]
+(hbnb) all User
+[]
+(hbnb) all Place
+["[Place] (93af02d8-f99a-469d-b7e5-b0e0502ecfca) {'id': '93af02d8-f99a-469d-b7e5-b0e0502ecfca', 'created_at': datetime.datetime(2020, 2, 17, 12, 42, 38, 634386), 'updated_at': datetime.datetime(2020, 2, 17, 12, 42, 38, 634408)}"]
+(hbnb) quit
 
+````
 ****
 ## Bugs
 No Known Bugs.
 ## AUTHOR
 Yasmine Hamdi : [LinkedIn/Yasmine] | [GitHub/Yasmine] | [Twitter/Yasmine]\
-Mariem Matri : [LinkedIn/Mariem] | [GitHub/Mariem] | [Twitter/Mariem]\
+Mariem Matri : [LinkedIn/Mariem] | [GitHub/Mariem] | [Twitter/Mariem]
 
 [LinkedIn/Mariem]: <https://www.linkedin.com/in/mariem-matri-249620178>
 [GitHub/Mariem]: <https://github.com/MatriMariem>
