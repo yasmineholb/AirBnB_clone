@@ -25,7 +25,7 @@ In this repository, we will focus only on the **command interpreter** and **file
 
 ## The flow of Serialization-Deserialization
 ````
-**<class 'BaseModel'> -> to_dict() -> <class 'dict'> -> JSON dump -> <class 'str'> -> FILE (file.json) -> <class 'str'> -> JSON load -> <class 'dict'> -> <class 'BaseModel'>**
+<class 'BaseModel'> -> to_dict() -> <class 'dict'> -> JSON dump -> <class 'str'> -> FILE (file.json) -> <class 'str'> -> JSON load -> <class 'dict'> -> <class 'BaseModel'>
 ````
 ## Files repartition
 **AirBnB_clone**
