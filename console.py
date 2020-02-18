@@ -125,6 +125,9 @@ class HBNBCommand(cmd.Cmd):
         if len(n) == 1 or n[1] == "":
             print("** attribute name missing **")
             return
+        if n[1][1] == '{' and n[1][-1] == '}':
+            self.fn_update2(n[1], objects[key])
+            return
         if len(n) == 2 or n[2] == "":
             print("** value missing **")
             return
@@ -136,6 +139,18 @@ class HBNBCommand(cmd.Cmd):
         except:
             setattr(objects[key], attr, n[2])
         storage.save()
+
+    def fn_update2(self, d, obj):
+        """ update attributes of an object given in a dictionary """
+        dic = eval(d)
+        for k, v in dic.items():
+            try:
+                value = getattr(obj, k)
+                t = type(value)
+                setattr(obj, k, t(v))
+            except:
+                setattr(obj, k, v)
+            storage.save()
 
     def do_create(self, arg):
         """
