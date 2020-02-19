@@ -1,14 +1,14 @@
 #!/usr/bin/python3
 """
-unittests for User class
+unittests for State class
 """
 import unittest
-from models.user import User
+from models.state import State
 from models.base_model import BaseModel
 
 
 class testfile(unittest.TestCase):
-    """ unittests for User class """
+    """ unittests for State class """
     def test_inheritance(self):
         """ checks if it inherits from BaseModel """
-        self.assertTrue(issubclass(User, BaseModel))
+        self.assertTrue(issubclass(State, BaseModel))
