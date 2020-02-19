@@ -125,7 +125,7 @@ class HBNBCommand(cmd.Cmd):
         if len(n) == 1 or n[1] == "":
             print("** attribute name missing **")
             return
-        if n[1][1] == '{' and n[1][-1] == '}':
+        if n[1][0] == '{' and n[1][-1] == '}':
             self.fn_update2(n[1], objects[key])
             return
         if len(n) == 2 or n[2] == "":
